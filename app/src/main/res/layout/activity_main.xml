@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121212">
+
+    <!-- Top Navigation Bar -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#1E1E1E"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="4dp">
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="◀"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btnForward"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="▶"
+            android:textColor="#FFFFFF" />
+
+        <EditText
+            android:id="@+id/urlInput"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#2C2C2C"
+            android:hint="URL o buscar..."
+            android:imeOptions="actionGo"
+            android:inputType="textUri"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:singleLine="true"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#888888"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btnDesktop"
+            android:layout_width="44dp"
+            android:layout_height="match_parent"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="PC"
+            android:textColor="#00E676"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btnReload"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="↻"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <!-- WebView -->
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/topBar" />
+
+    <!-- Virtual Mouse Cursor -->
+    <View
+        android:id="@+id/cursorView"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:background="#FF3D00"
+        android:elevation="10dp" />
+
+    <!-- Virtual Trackpad Overlay (Bottom Right) -->
+    <FrameLayout
+        android:id="@+id/trackpad"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:background="#55000000"
+        android:elevation="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="TRACKPAD
+(Toca para clic)"
+            android:gravity="center"
+            android:textColor="#88FFFFFF"
+            android:textSize="10sp" />
+    </FrameLayout>
+
+</RelativeLayout>
