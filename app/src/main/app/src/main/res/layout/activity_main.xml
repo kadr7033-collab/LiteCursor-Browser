@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0F111A">
+
+    <!-- Top Navigation Bar -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:background="#161925"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:elevation="6dp">
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="36dp"
+            android:layout_height="38dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="❮"
+            android:textColor="#E2E8F0"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btnForward"
+            android:layout_width="36dp"
+            android:layout_height="38dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="❯"
+            android:textColor="#E2E8F0"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/urlInput"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:hint="Buscar o escribir URL..."
+            android:imeOptions="actionGo"
+            android:inputType="textUri"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp"
+            android:singleLine="true"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#64748B"
+            android:textSize="13sp" />
+
+        <Button
+            android:id="@+id/btnReload"
+            android:layout_width="36dp"
+            android:layout_height="38dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="↻"
+            android:textColor="#E2E8F0"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnMouseToggle"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="🖱"
+            android:textColor="#00E676"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btnDesktop"
+            android:layout_width="40dp"
+            android:layout_height="38dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="PC"
+            android:textStyle="bold"
+            android:textColor="#00E676"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btnFullscreen"
+            android:layout_width="36dp"
+            android:layout_height="38dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="⛶"
+            android:textColor="#38BDF8"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <!-- Quick Bookmarks Bar -->
+    <HorizontalScrollView
+        android:id="@+id/bookmarksScroll"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_below="@id/topBar"
+        android:background="#12151F"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp">
+
+            <Button
+                android:id="@+id/bmGoogle"
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"
+                android:layout_marginRight="6dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Google"
+                android:textAllCaps="false"
+                android:textColor="#CBD5E1"
+                android:textSize="11sp" />
+
+            <Button
+                android:id="@+id/bmTradingView"
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"
+                android:layout_marginRight="6dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="📈 TradingView"
+                android:textAllCaps="false"
+                android:textColor="#38BDF8"
+                android:textSize="11sp" />
+
+            <Button
+                android:id="@+id/bmGoCharting"
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"
+                android:layout_marginRight="6dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="📊 GoCharting"
+                android:textAllCaps="false"
+                android:textColor="#00E676"
+                android:textSize="11sp" />
+
+            <Button
+                android:id="@+id/bmYouTube"
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"
+                android:layout_marginRight="6dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="▶ YouTube"
+                android:textAllCaps="false"
+                android:textColor="#F87171"
+                android:textSize="11sp" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Thin Loading Progress Bar -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_below="@id/bookmarksScroll"
+        android:max="100"
+        android:progress="0"
+        android:visibility="gone" />
+
+    <!-- Main WebView -->
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/progressBar" />
+
+    <!-- Floating Button to Exit Fullscreen -->
+    <Button
+        android:id="@+id/btnExitFullscreen"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="12dp"
+        android:text="✕"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:elevation="12dp"
+        android:visibility="gone" />
+
+    <!-- Virtual Mouse Cursor (Crosshair Ring) -->
+    <FrameLayout
+        android:id="@+id/cursorView"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:elevation="14dp">
+
+        <View
+            android:id="@+id/cursorDot"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:layout_gravity="center" />
+    </FrameLayout>
+
+    <!-- Virtual Trackpad Pro (With Scroll & Drag) -->
+    <LinearLayout
+        android:id="@+id/trackpadContainer"
+        android:layout_width="175dp"
+        android:layout_height="155dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="14dp"
+        android:orientation="horizontal"
+        android:elevation="10dp">
+
+        <!-- Main Touch Area -->
+        <FrameLayout
+            android:id="@+id/trackpad"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="6dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|start"
+                android:text="⠿ MOVER"
+                android:id="@+id/btnMovePad"
+                android:padding="4dp"
+                android:textColor="#94A3B8"
+                android:textSize="9sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="TRACKPAD PRO
+Tap = Clic"
+                android:textColor="#55E2E8F0"
+                android:textSize="10sp" />
+        </FrameLayout>
+
+        <!-- Side Scroll & Action Strip -->
+        <LinearLayout
+            android:layout_width="36dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="3dp">
+
+            <Button
+                android:id="@+id/btnScrollUp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="?android:attr/selectableItemBackground"
+                android:text="▲"
+                android:textColor="#00E676"
+                android:textSize="11sp" />
+
+            <Button
+                android:id="@+id/btnDragMode"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="?android:attr/selectableItemBackground"
+                android:text="HOLD"
+                android:textColor="#94A3B8"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/btnScrollDown"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="?android:attr/selectableItemBackground"
+                android:text="▼"
+                android:textColor="#00E676"
+                android:textSize="11sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
